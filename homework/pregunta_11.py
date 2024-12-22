@@ -16,3 +16,14 @@ def pregunta_11():
 
 
     """
+    with open("files/input/data.csv", "r") as csvfile:
+        lines = csvfile.read().splitlines()
+    values = {}
+    for row in lines:
+        parts = row.split("\t")
+        for i in parts[3].split(","):
+            if i in values:
+                values[i] += int(parts[1])
+            else:
+                values[i] = int(parts[1])
+    return dict(sorted(values.items()))

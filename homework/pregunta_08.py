@@ -27,3 +27,15 @@ def pregunta_08():
      (9, ['A', 'B', 'C', 'E'])]
 
     """
+    with open('files/input/data.csv', 'r') as csvfile:
+        lines = csvfile.readlines()
+
+    values = {}
+    for row in lines:
+        parts = row.split("\t")
+        try:
+            values[int(parts[1])].add(parts[0])
+        except:
+            values[int(parts[1])] = set(parts[0])
+
+    return [(x, sorted(list(y))) for x, y in sorted(values.items())]

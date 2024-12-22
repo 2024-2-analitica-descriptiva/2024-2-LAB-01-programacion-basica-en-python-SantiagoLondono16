@@ -14,3 +14,8 @@ def pregunta_01():
     214
 
     """
+    cont = 0
+    with open("./files/input/data.csv", 'r') as csvfile:
+        for line in csvfile:
+            columns = line.strip().split("\t")
+            cont += int(columns[1])
