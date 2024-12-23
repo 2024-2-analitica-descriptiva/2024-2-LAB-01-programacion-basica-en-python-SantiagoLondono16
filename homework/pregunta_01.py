@@ -19,3 +19,4 @@ def pregunta_01():
         for line in csvfile:
             columns = line.strip().split("\t")
             cont += int(columns[1])
+        return cont
